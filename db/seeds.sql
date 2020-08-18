@@ -21,6 +21,8 @@ VALUES
   ("Mike", "Chan", 1, NULL),
   ("Ashley", "Rodriguez", 5, NULL),
   ("Kevin", "Tupik", 2, 1),
-  ("Malia", "Brown", 7, 6),
   ("Sarah", "Lourd", 4, 3),
-  ("Tom", "Allen", 6, NULL);
+  ("Tom", "Allen", 6, NULL),
+  ("Malia", "Brown", 7, 6);
+
+  

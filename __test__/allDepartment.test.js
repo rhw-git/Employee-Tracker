@@ -1,0 +1,1 @@
+test('view all departments', () => {});
