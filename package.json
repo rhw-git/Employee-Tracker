@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "migrate": "sqlite3 db/employee.db < db/schema.sql",
-    "seed": "sqlite3 db/empolyee.db < db/seeds/sql"
+    "seed": "sqlite3 db/employee.db < db/seeds.sql"
   },
   "repository": {
     "type": "git",

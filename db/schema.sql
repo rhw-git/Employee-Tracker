@@ -9,7 +9,7 @@ CREATE TABLE departments(
 CREATE TABLE roles (
   id INTEGER PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
-  salary DECIMAL(5,2),
+  salary DECIMAL(8,2),
   department_id UNSIGNED NOT NULL,
   CONSTRAINT fk_department FOREIGN KEY
     (department_id) REFERENCES departments (id) 
