@@ -17,22 +17,26 @@ pool.on('acquire', function (connection) {
 
 //-----------------------import from support *.js -------------------------//
 // import functions
-const readTable = require('./lib/readTables');
+const readDepartments = require('./lib/readDepartments');
+const readRoles = require('./lib/readRoles');
+const readEmployees = require('./lib/readEmployees');
 // import objects
 const { header, promptQuestions } = require('./utils/promptPrepare');
 
-CommandLinePrompt = () => {
+commandLinePrompt = () => {
   // console.log title of this app
   console.log(header);
   inquirer.prompt(promptQuestions).then(({ action }) => {
-    if (
-      action === 'view all departments' ||
-      action === 'view all roles' ||
-      action === 'view all employees'
-    ) {
-      readTable(action);
+    if (action === 'view all departments') {
+      readDepartments(action);
+    } else if (action === 'view all roles') {
+      readRoles(action);
+    } else if (action === 'view all employees') {
+      readEmployees(action);
     }
   });
 };
 
-CommandLinePrompt();
+commandLinePrompt();
+// export for test
+module.exports = commandLinePrompt;
