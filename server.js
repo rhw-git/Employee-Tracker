@@ -21,7 +21,11 @@ const readDepartments = require('./lib/readDepartments');
 const readRoles = require('./lib/readRoles');
 const readEmployees = require('./lib/readEmployees');
 // import objects
-const { header, promptQuestions } = require('./utils/promptPrepare');
+const {
+  header,
+  promptQuestions,
+  promptQuestionAddDepartment,
+} = require('./utils/promptPrepare');
 
 commandLinePrompt = () => {
   // console.log title of this app
@@ -33,6 +37,12 @@ commandLinePrompt = () => {
       readRoles(action);
     } else if (action === 'view all employees') {
       readEmployees(action);
+    } else if (action === 'add a department') {
+      inquirer
+        .prompt(promptQuestionAddDepartment)
+        .then(({ departmentName }) => {
+          console.log(departmentName);
+        });
     }
   });
 };

@@ -22,5 +22,11 @@ const promptQuestions = {
     'and update an employee role',
   ],
 };
+// promptQuestions AddDepartment
+const promptQuestionAddDepartment = {
+  type: 'input',
+  message: 'What is the new department name?',
+  name: 'departmentName',
+};
 // export objects
-module.exports = { header, promptQuestions };
+module.exports = { header, promptQuestions, promptQuestionAddDepartment };
