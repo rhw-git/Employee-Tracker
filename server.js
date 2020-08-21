@@ -10,22 +10,15 @@ const pool = mysql.createPool({
 });
 // export pool
 exports.pool = pool;
-// lisent to the aquire event
-pool.on('acquire', function (connection) {
-  console.log('Connection %d acquired', connection.threadId);
-});
 
 //-----------------------import from support *.js -------------------------//
 // import functions
 const readDepartments = require('./lib/readDepartments');
 const readRoles = require('./lib/readRoles');
 const readEmployees = require('./lib/readEmployees');
+const addDepartment = require('./lib/addDepartment');
 // import objects
-const {
-  header,
-  promptQuestions,
-  promptQuestionAddDepartment,
-} = require('./utils/promptPrepare');
+const { header, promptQuestions } = require('./utils/promptPrepare');
 
 commandLinePrompt = () => {
   // console.log title of this app
@@ -38,11 +31,7 @@ commandLinePrompt = () => {
     } else if (action === 'view all employees') {
       readEmployees(action);
     } else if (action === 'add a department') {
-      inquirer
-        .prompt(promptQuestionAddDepartment)
-        .then(({ departmentName }) => {
-          console.log(departmentName);
-        });
+      addDepartment(action);
     }
   });
 };
