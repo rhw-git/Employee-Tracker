@@ -19,7 +19,7 @@ const promptQuestions = {
     'add a department',
     'add a role',
     'add an employee',
-    'and update an employee role',
+    'update an employee role',
   ],
 };
 // promptQuestions AddDepartment
@@ -28,11 +28,47 @@ const promptQuestionAddDepartment = {
   message: 'What is the new department name?',
   name: 'departmentName',
 };
-// promptQuestions AddDepartment
-const promptQuestionAddRole = {
-  type: 'input',
-  message: 'What is the new role name?',
-  name: 'departmentName',
-};
+// promptQuestions role
+const promptQuestionAddRole = [
+  {
+    type: 'input',
+    message: 'What is the new title of this role?',
+    name: 'title',
+  },
+  {
+    type: 'input',
+    message: 'What is the salary of this new role?',
+    name: 'salary',
+  },
+  {
+    type: 'input',
+    message: 'What department this role belong to?',
+    name: 'department',
+  },
+];
+// promptQuestions add employee
+const promptQuestionAddRole = [
+  {
+    type: 'input',
+    message: 'What is the first name of this new employee?',
+    name: 'firstName',
+  },
+  {
+    type: 'input',
+    message: 'What is the last name of this new employee?',
+    name: 'lastName',
+  },
+  {
+    type: 'list',
+    message: 'What is their role?',
+    name: 'role',
+    choices: [],
+  },
+];
 // export objects
-module.exports = { header, promptQuestions, promptQuestionAddDepartment };
+module.exports = {
+  header,
+  promptQuestions,
+  promptQuestionAddDepartment,
+  promptQuestionAddRole,
+};

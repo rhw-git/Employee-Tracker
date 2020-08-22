@@ -6,13 +6,14 @@ const poolGetConnectReadTables = (query) => {
     if (err) throw err;
     // use connection to read table
     console.table(res);
+    return res;
   });
 };
 // get pool query for all manipulate table functions
 const poolGetConnectManipulateTables = (query, params) => {
-  pool.query(query, params, function (err, result) {
+  pool.query(query, params, function (err, res) {
     if (err) throw err;
-    console.log(result);
+    console.log(res);
   });
 };
 module.exports = { poolGetConnectReadTables, poolGetConnectManipulateTables };
