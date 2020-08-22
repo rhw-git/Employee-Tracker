@@ -47,7 +47,7 @@ const promptQuestionAddRole = [
   },
 ];
 // promptQuestions add employee
-const promptQuestionAddRole = [
+const promptQuestionAddEmployee = [
   {
     type: 'input',
     message: 'What is the first name of this new employee?',
@@ -65,10 +65,27 @@ const promptQuestionAddRole = [
     choices: [],
   },
 ];
+// promptQuestions role
+const promptQuestionUpdateEmployee = [
+  {
+    type: 'list',
+    message: 'Select an employee to update?',
+    name: 'employee',
+    choices: [],
+  },
+  {
+    type: 'list',
+    message: 'What is the new role of this employee',
+    name: 'role',
+    choices: [],
+  },
+];
 // export objects
 module.exports = {
   header,
   promptQuestions,
   promptQuestionAddDepartment,
   promptQuestionAddRole,
+  promptQuestionAddEmployee,
+  promptQuestionUpdateEmployee,
 };

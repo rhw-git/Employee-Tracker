@@ -24,13 +24,13 @@ const { header, promptQuestions } = require('./utils/promptPrepare');
 const commandLinePrompt = () => {
   inquirer.prompt(promptQuestions).then(({ action }) => {
     if (action === 'view all departments') {
-      readDepartments(action, commandLinePrompt());
+      readDepartments(action, commandLinePrompt);
     } else if (action === 'view all roles') {
-      readRoles(action, commandLinePrompt());
+      readRoles(action, commandLinePrompt);
     } else if (action === 'view all employees') {
-      readEmployees(action, commandLinePrompt());
+      readEmployees(action, commandLinePrompt);
     } else if (action === 'add a department') {
-      addDepartment(commandLinePrompt());
+      addDepartment(commandLinePrompt);
     } else if (action === 'add a role') {
       addRole();
     }
