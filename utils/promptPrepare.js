@@ -28,5 +28,11 @@ const promptQuestionAddDepartment = {
   message: 'What is the new department name?',
   name: 'departmentName',
 };
+// promptQuestions AddDepartment
+const promptQuestionAddRole = {
+  type: 'input',
+  message: 'What is the new role name?',
+  name: 'departmentName',
+};
 // export objects
 module.exports = { header, promptQuestions, promptQuestionAddDepartment };
