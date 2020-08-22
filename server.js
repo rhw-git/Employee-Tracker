@@ -20,10 +20,7 @@ const addDepartment = require('./lib/addDepartment');
 // import objects
 const { header, promptQuestions } = require('./utils/promptPrepare');
 
-// class Server {
-function commandLinePrompt() {
-  // console.log title of this app
-  console.log(header);
+const commandLinePrompt = () => {
   inquirer.prompt(promptQuestions).then(({ action }) => {
     if (action === 'view all departments') {
       readDepartments(action, commandLinePrompt());
@@ -32,12 +29,13 @@ function commandLinePrompt() {
     } else if (action === 'view all employees') {
       readEmployees(action, commandLinePrompt());
     } else if (action === 'add a department') {
-      addDepartment(action);
+      addDepartment(commandLinePrompt());
     }
   });
-}
-// }
+};
 
-// export for test
-
+// console.log title of this app
+console.log(header);
 commandLinePrompt();
+// export for test
+module.exports = commandLinePrompt;
