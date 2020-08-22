@@ -28,9 +28,9 @@ function commandLinePrompt() {
     if (action === 'view all departments') {
       readDepartments(action, commandLinePrompt());
     } else if (action === 'view all roles') {
-      readRoles(action);
+      readRoles(action, commandLinePrompt());
     } else if (action === 'view all employees') {
-      readEmployees(action);
+      readEmployees(action, commandLinePrompt());
     } else if (action === 'add a department') {
       addDepartment(action);
     }

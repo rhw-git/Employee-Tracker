@@ -4,8 +4,8 @@ const pool = require('../server').pool;
 const poolGetConnect = (query) => {
   pool.query(query, function (err, res) {
     if (err) throw err;
+    // use connection to read table
     console.table(res);
   });
 };
-
 module.exports = poolGetConnect;
