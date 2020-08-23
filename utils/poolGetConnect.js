@@ -6,15 +6,13 @@ const poolGetConnectReadTables = (query) => {
     if (err) throw err;
     // use connection to read table
     console.table(res);
-    return res;
   });
 };
 // get pool query for one column from a table
 const poolGetConnectReadCol = (query) => {
   return pool.promise().query(query, function (err, res) {
-    if (err) throw err;
-    console.log('first=>', res);
-    return res;
+    if (err) throw err; // this console.log works fine here.
+    console.log('res=>', res);
   });
 };
 const poolGetConnectGetItem = (query, params) => {

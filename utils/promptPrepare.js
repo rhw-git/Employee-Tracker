@@ -58,12 +58,6 @@ const promptQuestionAddEmployee = [
     message: 'What is the last name of this new employee?',
     name: 'lastName',
   },
-  {
-    type: 'list',
-    message: 'Select an manager for this new employee?',
-    name: 'managerName',
-    choices: [],
-  },
 ];
 // promptQuestions role
 const promptQuestionUpdateEmployee = [
