@@ -18,6 +18,7 @@ const readRoles = require('./lib/readRoles');
 const readEmployees = require('./lib/readEmployees');
 const addDepartment = require('./lib/addDepartment');
 const addRole = require('./lib/addRole');
+const addEmployee = require('./lib/addEmployee');
 // import objects
 const { header, promptQuestions } = require('./utils/promptPrepare');
 
@@ -32,11 +33,12 @@ const commandLinePrompt = () => {
     } else if (action === 'add a department') {
       addDepartment(commandLinePrompt);
     } else if (action === 'add a role') {
-      addRole();
+      addRole(commandLinePrompt);
+    } else if (action === 'add an employee') {
+      addEmployee(commandLinePrompt);
     }
   });
 };
-
 // console.log title of this app
 console.log(header);
 commandLinePrompt();

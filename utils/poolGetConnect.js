@@ -6,6 +6,22 @@ const poolGetConnectReadTables = (query) => {
     if (err) throw err;
     // use connection to read table
     console.table(res);
+    return res;
+  });
+};
+// get pool query for one column from a table
+const poolGetConnectReadCol = (query) => {
+  return pool.promise().query(query, function (err, res) {
+    if (err) throw err;
+    console.log('first=>', res);
+    return res;
+  });
+};
+const poolGetConnectGetItem = (query, params) => {
+  return pool.promise().query(query, [...params], function (err, res) {
+    if (err) throw err;
+    // return res
+    return res;
   });
 };
 // get pool query for all manipulate table functions
@@ -15,4 +31,9 @@ const poolGetConnectManipulateTables = (query, params) => {
     console.log(res);
   });
 };
-module.exports = { poolGetConnectReadTables, poolGetConnectManipulateTables };
+module.exports = {
+  poolGetConnectReadTables,
+  poolGetConnectGetItem,
+  poolGetConnectManipulateTables,
+  poolGetConnectReadCol,
+};

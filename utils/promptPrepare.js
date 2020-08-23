@@ -60,8 +60,8 @@ const promptQuestionAddEmployee = [
   },
   {
     type: 'list',
-    message: 'What is their role?',
-    name: 'role',
+    message: 'Select an manager for this new employee?',
+    name: 'managerName',
     choices: [],
   },
 ];
