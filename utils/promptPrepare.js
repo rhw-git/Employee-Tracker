@@ -1,3 +1,7 @@
+// import pool
+const pool = require('../server').pool;
+// import functions
+const { poolGetConnectReadCol } = require('../utils/poolGetConnect');
 // ----------------------- prepare for prompt ---------------------//
 // header
 const header = `
@@ -47,6 +51,36 @@ const promptQuestionAddRole = [
   },
 ];
 // promptQuestions add employee
+// get all the available roles from database
+const availableRoles = async () => {
+  const query = `SELECT title FROM roles`;
+  poolGetConnectReadCol(query)
+    // organize the res into an array of title strings
+    .then((res) => {
+      res.map((res) => {
+        return res.title;
+      });
+    });
+};
+// get all the available  from database
+const availableManagers = async () => {
+  const query = `SELECT
+    CONCAT(first_name, " ", last_name) AS Managers
+    FROM employees`;
+  poolGetConnectReadCol(query)
+    // organize the res into an array of manager name strings
+    .then((res) => {
+      data = res.map((res) => {
+        return res.Managers;
+      });
+      console.log(data); // works!
+      return data;
+    });
+};
+
+let managers = availableManagers();
+
+// update the promptQuestions with roles and
 const promptQuestionAddEmployee = [
   {
     type: 'input',
@@ -57,6 +91,12 @@ const promptQuestionAddEmployee = [
     type: 'input',
     message: 'What is the last name of this new employee?',
     name: 'lastName',
+  },
+  {
+    type: 'list',
+    message: 'Whose is their manager?',
+    name: 'manager',
+    choices: [managers],
   },
 ];
 // promptQuestions role
