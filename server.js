@@ -22,8 +22,8 @@ const addEmployee = require('./lib/addEmployee');
 // import objects
 const { header, promptQuestions } = require('./utils/promptPrepare');
 
-const commandLinePrompt = () => {
-  inquirer.prompt(promptQuestions).then(({ action }) => {
+const commandLinePrompt = async () => {
+  inquirer.prompt(promptQuestions).then(async ({ action }) => {
     if (action === 'view all departments') {
       readDepartments(action, commandLinePrompt);
     } else if (action === 'view all roles') {
@@ -35,12 +35,12 @@ const commandLinePrompt = () => {
     } else if (action === 'add a role') {
       addRole(commandLinePrompt);
     } else if (action === 'add an employee') {
-      addEmployee(commandLinePrompt);
+      await addEmployee(commandLinePrompt);
     }
   });
 };
 // console.log title of this app
 console.log(header);
-commandLinePrompt();
+// commandLinePrompt(); // main logic or application start
 // export for test
 module.exports = commandLinePrompt;
